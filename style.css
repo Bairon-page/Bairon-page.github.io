@@ -14,8 +14,10 @@ body{background-color: black;
  button {
   background-color: #FF747474 !important;
   color: #FF000000 !important;
+  border-radius: 30px;
+  border: none;
   font-weight: bold;
-  width: 200px;
+  width: 60px;
   height: 30px;
  }
 #contenedor { color:white;
