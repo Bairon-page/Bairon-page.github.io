@@ -14,13 +14,13 @@ body{background-color: black;
  button {
   background-color: #FF747474 !important;
   color: #FF000000 !important;
-  border-radius: 30px !important;
+  border-radius: 30px;
 border: solid;
 
   border-width: 0px;
   font-weight: bold;
-  width: 60px;
-  height: 30px;
+  width: 80px;
+  height: 40px;
  }
 #contenedor { color:white;
             }
