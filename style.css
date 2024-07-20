@@ -11,7 +11,7 @@ body{background-color: black;
  h1{
      color: white;
  } 
- .boton {
+ button {
   backgruond-color: grey;
   color: black;
   font-weight: bold;
