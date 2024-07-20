@@ -15,7 +15,9 @@ body{background-color: black;
   background-color: #FF747474 !important;
   color: #FF000000 !important;
   border-radius: 30px !important;
-  border: none !important;
+border: solid !important;
+
+  border-width: 0px !important;
   font-weight: bold;
   width: 60px;
   height: 30px;
