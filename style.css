@@ -12,7 +12,8 @@ body{background-color: black;
      color: white;
  } 
  button {
-  background-color: grey;
+  background-color: #FF747474 !important;
+  color: #FF000000 !important;
   font-weight: bold;
   width: 200px;
   height: 30px;
