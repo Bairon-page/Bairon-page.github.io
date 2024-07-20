@@ -12,8 +12,7 @@ body{background-color: black;
      color: white;
  } 
  button {
-  backgruond-color: grey;
-  color: black;
+  background-color: blue;
   font-weight: bold;
   width: 200px;
   height: 30px;
