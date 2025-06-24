@@ -1,22 +1,37 @@
 {
   "name": "Entorno Cordova Android",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",  // Imagen oficial de Ubuntu
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
-      "version": "18"  // Instala Node.js 18 (requerido para Cordova)
+      "version": "18",
+      "global": true
     },
     "ghcr.io/devcontainers/features/java:1": {
-      "version": "17",  // Java 17 (necesario para Android SDK)
+      "version": "17",
       "installMaven": false
     }
   },
   "customizations": {
     "vscode": {
       "extensions": [
-        "msjsdiag.cordova-tools"  // Extensión útil para depurar Cordova
-      ]
+        "msjsdiag.cordova-tools",
+        "redhat.java",
+        "vscjava.vscode-java-pack"
+      ],
+      "settings": {
+        "java.home": "/usr/lib/jvm/java-17-openjdk-amd64"
+      }
     }
   },
-  "postCreateCommand": "npm install -g cordova && ./setup-android-sdk.sh",  // Comandos que se ejecutan al iniciar
-  "forwardPorts": [3000, 8100, 35729]  // Puertos para live-reload (Ionic/Cordova)
+  "remoteEnv": {
+    "ANDROID_SDK_ROOT": "${containerWorkspaceFolder}/android-sdk",
+    "ANDROID_HOME": "${containerWorkspaceFolder}/android-sdk",
+    "PATH": "${containerEnv:PATH}:${containerWorkspaceFolder}/android-sdk/cmdline-tools/bin:${containerWorkspaceFolder}/android-sdk/platform-tools"
+  },
+  "postCreateCommand": "npm install -g cordova && chmod +x ./setup-android-sdk.sh && ./setup-android-sdk.sh",
+  "forwardPorts": [3000, 8100, 35729, 53703],
+  "runArgs": ["--privileged"],
+  "mounts": [
+    "source=android-sdk,target=${containerWorkspaceFolder}/android-sdk,type=volume"
+  ]
 }
