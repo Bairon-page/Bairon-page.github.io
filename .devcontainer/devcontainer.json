@@ -1,0 +1,22 @@
+{
+  "name": "Entorno Cordova Android",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",  // Imagen oficial de Ubuntu
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "18"  // Instala Node.js 18 (requerido para Cordova)
+    },
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "17",  // Java 17 (necesario para Android SDK)
+      "installMaven": false
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "msjsdiag.cordova-tools"  // Extensión útil para depurar Cordova
+      ]
+    }
+  },
+  "postCreateCommand": "npm install -g cordova && ./setup-android-sdk.sh",  // Comandos que se ejecutan al iniciar
+  "forwardPorts": [3000, 8100, 35729]  // Puertos para live-reload (Ionic/Cordova)
+}
